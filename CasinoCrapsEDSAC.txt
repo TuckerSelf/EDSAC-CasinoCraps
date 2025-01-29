@@ -1,0 +1,138 @@
+T 64 K
+G    K
+T 47 K [ Set M ]
+P  7 @
+T    Z [ Restore theta ]
+T    F [ 0: Clear ACC]
+Z    F [ 1: Get dial input ]
+A    M [ 2: Add the original jump ]
+T  5 @ [ 3: Store the link to the jump table ]
+A  4 @ [ 4: pickup for wheeler jump ]
+P    F [ 5: Link into jump table ]
+E   0@ [ 6: Do it again ]
+G    M [ M(0) - Original Jump relative to M ]
+G  90F [ M(1) - menu item 1]
+G  96F [ M(2) - menu item 2]
+G   0@ [ M(3) - menu item 3]
+G   0@ [ M(4) - menu item 4]
+G   0@ [ M(5) - menu item 5]
+G   0@ [ M(6) - menu item 6]
+G   0@ [ M(7) - menu item 7]
+G   0@ [ M(8) - menu item 8]
+G   0@ [ M(9) - menu item 9]
+G   0@ [ M(10) - menu item 10]
+T 90 K
+[ Print A ]
+G      K
+A   3  F [ 0 build the link ]
+T   3  @ [ 1 plant the link ]
+O   4  @ [ 2 print the character ]
+P      F [ 3 the link ]
+A      F [ 4 the letter A ]
+
+T 96 K
+[ Print B ]
+G      K
+A   3  F [ 0 build the link ]
+T   3  @ [ 1 plant the link ]
+O   4  @ [ 2 print the character ]
+P      F [ 3 the link ]
+B      F [ 4 the letter B ]
+
+E 64 K PF
+T 64 K
+G    K
+T    F [0 clear acc ]
+A   1@ [1 pick up self]
+G  90F [2 Call PRNG]
+Z    F [3 Halt the machine ]
+T    F [4 clear ACC ]
+E   1@ [5 do it again]
+
+
+T 90 K
+
+[ Random Number Generator ]
+G    K  [ get theta ]
+T 47 K  [ set M ]
+P 14 @
+T    Z  [ restore to theta ]
+A  3 F  [ 0 form the link ]
+T    M  [ 1 plant the link ]
+A  4 M  [ 2 add the number ]
+G 10 @  [ 3 Reset the counter]
+T  1 M  [ 4 store the number ]
+A  2 @  [ 5 load the instruction ]
+A  2 M  [ 6 increment the load instruction ]
+T  2 @  [ 7 store the modified inst]
+A  1 M  [ 8 reload the result ]
+E    M  [ 9 jump to n to return ]
+T    F  [10 Reset ACC]
+A  3 M  [11 get the original index]
+T  2 @  [12 restore the index]
+E  2 @  [13 reload the number]
+P F [ M link out of the routine ]
+P F [ M(1) Number that we generate]
+P1F [ M(2) increment ]
+A4M [ M(3) original index ]
+P6F [ M(4) an array of random rolls ]
+P1F
+P6F
+P4F
+P5F
+P1F
+P2F
+P5F
+P6F
+P3F
+AF
+
+E 64 K PF
+T 64 K
+G    K
+T    F [0 clear acc ]
+A   1@ [1 pick up self]
+G  90F [2 Call PRNG]
+Z    F [3 Halt the machine ]
+T    F [4 clear ACC ]
+E   1@ [5 do it again]
+
+
+T 90 K
+
+[ Random Number Generator ]
+G    K  [ get theta ]
+T 47 K  [ set M ]
+P 14 @
+T    Z  [ restore to theta ]
+A  3 F  [ 0 form the link ]
+T    M  [ 1 plant the link ]
+A  4 M  [ 2 add the number ]
+G 10 @  [ 3 Reset the counter]
+T  1 M  [ 4 store the number ]
+A  2 @  [ 5 load the instruction ]
+A  2 M  [ 6 increment the load instruction ]
+T  2 @  [ 7 store the modified inst]
+A  1 M  [ 8 reload the result ]
+E    M  [ 9 jump to n to return ]
+T    F  [10 Reset ACC]
+A  3 M  [11 get the original index]
+T  2 @  [12 restore the index]
+E  2 @  [13 reload the number]
+P F [ M link out of the routine ]
+P F [ M(1) Number that we generate]
+P1F [ M(2) increment ]
+A4M [ M(3) original index ]
+P6F [ M(4) an array of random rolls ]
+P1F
+P6F
+P4F
+P5F
+P1F
+P2F
+P5F
+P6F
+P3F
+AF
+
+E 64 K PF
